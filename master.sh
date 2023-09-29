@@ -6,7 +6,7 @@ function get_wifi() {
 
 function get_geo() {
   t=$(date +%s)
-  geo=$(termux-location | grep "tude" | awk '{print $2}' | tr -d "\n")
+  geo=$(termux-location | grep -e "latitude" -e "longitude" | awk '{print $2}' | tr -d "\n")
   echo "$geo$t"
 }
 
@@ -19,5 +19,5 @@ while :
 do
   get_wifi >> $wf &  
   get_geo >> $gf &
-  sleep 2
+  sleep 1 
 done
