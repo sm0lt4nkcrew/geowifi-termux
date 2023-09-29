@@ -15,7 +15,8 @@ wf="wifi-$t.txt"
 gf="geo-$t.txt"
 touch $wf $gf
 
-while : do
+while : 
+do
   get_wifi >> $wf &  
   get_geo >> $gf &
   sleep 2
